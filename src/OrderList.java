@@ -52,12 +52,14 @@ public class OrderList {
     public void search(String number) {
         if (!isEmpty()) {
             Scanner scanner = new Scanner(System.in);
+            System.out.println("\t\t\t\t+--------------------+---------+----------------+");
+            System.out.printf("\t\t\t\t|%-20s|%-9s|%-16s|%n","   Size ","   QTY  ","  Total Amount  ");
+            System.out.println("\t\t\t\t+--------------------+---------+----------------+");
             for (int i = 0; i < nextIndex; i++) {
                 String number2 = orderArray[i].phoneNumber;
                 if (number.equals(number2)) {
-                    System.out.print("Size : " + orderArray[i].size);
-                    System.out.print("Qty : " + orderArray[i].qty);
-                    System.out.print("Amount : " + orderArray[i].amount);
+                    System.out.println("\t\t\t\t|                    |         |                |");
+                    System.out.printf("\t\t\t\t|  %-18s|  %-7d|   %-13.0f|%n", orderArray[i].size,orderArray[i].qty,orderArray[i].amount);
                     System.out.println("Do you want to search another customer (Y/N) : ");
                     char x = scanner.next().charAt(0);
                     if (x == 'y' || x == 'Y') {
@@ -70,6 +72,7 @@ public class OrderList {
                     search(null);
                 }
             }
+            System.out.println("\t\t\t\t+--------------------+---------+----------------+\n\n");
         }
     }
 
@@ -308,7 +311,7 @@ public class OrderList {
         System.out.printf("\t\t|%-15s|%-7s|%-7s|%-7s|%-7s|%-7s|%-7s|%15s  |%n", "Phone Number", "  " + "XS", "  " + "S", "  " + "M", "  " + "L", "  " + "XL", "  " + "XXL", "TOTAL");
         System.out.println("\t\t+----------------+-------+-------+-------+-------+-------+-------+---------------+");
         for (int i = 0; i <nextIndex ; i++) {
-            System.out.printf("\t\t|%-15s|%-7s|%-7s|%-7s|%-7s|%-7s|%-7s|%13.2f  |%n",orderArray[i].phoneNumber, "  " + [0], "  " + tempSizes[1], "  " + tempSizes[2], "  " + tempSizes[3], "  " + tempSizes[4], "  " + tempSizes[5], total);
+            System.out.printf("\t\t|%-15s|%-7s|%-7s|%-7s|%-7s|%-7s|%-7s|%13.2f  |%n",orderArray[i].phoneNumber+"  ","  "+0 , "  " + 0, "  " +0, "  " + 0,"  " + 0,orderArray[i].size, orderArray[i].amount);
             System.out.println("\t\t+----------------+-------+-------+-------+-------+-------+-------+---------------+");
         }
     }
